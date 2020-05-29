@@ -1,0 +1,41 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <string>
+using namespace std;
+
+
+double dy(double y, double t) 
+{ 
+    return v; 
+}
+
+
+double rk4(double x0, double y0, double x, double dy) 
+{  
+    double k1, k2, k3, k4; 
+    double h;
+   
+    double y = y0; 
+    
+   while(y>0)
+   {
+        k1 = h*dy(x0, y); 
+        k2 = h*dy(x0 + 0.5*h, y + 0.5*k1); 
+        k3 = h*dy(x0 + 0.5*h, y + 0.5*k2); 
+        k4 = h*dy(x0 + h, y + k3); 
+       
+       
+        y = y + (1./6.)*(k1 + 2*k2 + 2*k3 + k4); 
+  
+        x0 = x0 + h; 
+       
+    } 
+  
+    return y; 
+  
+    }
+
+
+
+//fuente:geeksforgeeks
